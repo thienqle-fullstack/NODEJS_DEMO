@@ -79,23 +79,37 @@
 
 
             /*SIMPLE */
-            function myFunction1(){
-                return new Promise((resolve) => {
-                    setTimeout( function(){
-			            console.log("1")
-			        },1000);
-                    resolve();
-                })
-            }
+            function myFunction1():any{
+    return new Promise((resovle:any):void => {   
+        setTimeout(()=>{
+            console.log("function 1");
+            resovle();
+            },2000
+        );
+         ;
+        }
+    )
 
-            function myFunction2(){
-				setTimeout(function() {
-					console.log("2")
-				},1000);
-			}
+}
 
-            myFunction1().then(myFunction2)
-            
+
+function myFunction2(){
+    setTimeout(()=>{
+        console.log("function 2");
+        },1000
+    )
+}
+
+myFunction1().then(myFunction2);
+
+/* You can use async/await to call too*/
+(async () => {
+    await myFunction1()
+    myFunction2();
+    
+})();
+
+
 		</script>
 	</body>
 </html>
